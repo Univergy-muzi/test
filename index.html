@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UNIVERGY株式会社 業務ツールハブ</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <link rel="stylesheet" href="/static/styles/main.css" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/main.min.css" rel="stylesheet" />
+</head>
+
+<!-- #################################################################################################### -->
+
+<body>
+  <header class="page-header">
+    <div class="logo-wrapper">
+        <a href="/" class="logo-link">
+            <img src="/static/logo.png" alt="UNIVERGY株式会社ロゴ" class="logo-centered" />
+        </a>
+    </div>
+  </header>
+
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>UNIVERGY株式会社</strong></li>
+    </ul>
+    <ul>
+      <li><a href="/" class="btn nav-button">ホーム</a></li>
+      <li><a href="#tools" class="btn nav-button">ツール一覧</a></li>
+      <li><button id="calendarBtn" class="btn nav-button">📅 カレンダー</button></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section>
+      <hgroup>
+        <h2>業務自動化ツールハブ</h2>
+        <h3>UNIVERGY株式会社 専用</h3>
+      </hgroup>
+      <p>
+        このサイトは、UNIVERGY株式会社の社員が日常的に使用する分析ツールやファイル処理ツールを統合的に提供いたします。
+      </p>
+    </section>
+
+    <section id="tools" class="tool-section">
+      <h3>利用可能なツール</h3>
+      <p>以下は現在使用可能な主な業務ツールの一覧です。随時更新予定です：</p>
+
+      <!-- 確定使用量XML分析 機能 시작 -->
+      <div class="xml-tool-group" style="margin-bottom: 2rem;">
+        <h4>ㅤ①ㅤ確定使用量XML分析</h4>
+
+        <form method="POST" action="/kakutei" enctype="multipart/form-data">
+          <label class="custom-btn">
+            フォルダを選択
+            <input type="file" id="fileInput" name="files" webkitdirectory directory multiple accept=".xml" />
+          </label>
+
+          <div id="fileListContainer" style="margin-top:1rem;">
+            <p class="file-list-label">選択されたXMLファイル:</p>
+            <ul id="fileList"></ul>
+          </div>
+
+          <button type="submit">✅ 確定使用量XML分析実行</button>
+        </form>
+      </div>
+
+      <hr />
+
+      <div class="xml-tool-group" style="margin-bottom: 2rem;">
+        <h4>ㅤ②ㅤTEST</h4>
+        <p>
+            <a href="/run-csv-tool" class="custom-btn" target="_blank">📂 TESTボタン</a>
+        </p>
+      </div>  
+
+    </section>
+
+    <section class="tool-section">
+      <h3>継続的な改善</h3>
+      <p>
+        すべてのツールは利便性向上のために今後も追加・改善されていきます。必要な機能やご要望があれば、お気軽にお問い合わせください。
+      </p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <small><a href="#">プライバシーポリシー</a> • <a href="#">お問い合わせ</a></small>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+
+  <script src="/static/scripts/file-preview.js"></script>
+  <script src="/static/scripts/calendar.js"></script>
+
+</body>
+</html>
